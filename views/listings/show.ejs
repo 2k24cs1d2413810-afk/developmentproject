@@ -1,0 +1,83 @@
+<%layout("/layouts/boilerplate.ejs")%>
+<body>
+    <h3><%=listing.title%></h3>
+    <p class="card-text">
+      <h3>owner:  <i><%=listing.owner.username%></i></h3>  
+    </p>
+    <ul>
+        <img src="<%=listing.image.url %>" alt="listing image" class="lstng-img">
+        
+        <li><%=listing.title%></li>
+        <li> price: &#8377;<%=listing.price.toLocaleString("en-IN")%></li>
+        <li>location: <%=listing.location%></li>
+        
+    </ul>
+    <%if(currUser && listing.owner && currUser._id.toString() === listing.owner._id.toString()){%>
+    <form action="http://localhost:8080/listings/<%=listing._id%>/edit"><button type="submit"> edit the listing</button></form>
+    <form action="/listings/<%=listing._id%>/delete?_method=DELETE" method="POST">
+    <button type="submit">delete the listing</button>
+</form><%}%>
+<%if(currUser){%>
+<div class="review" class="col-8 offset-3">
+
+    <form action="/listings/<%=listing._id%>/reviews" method="post"  novalidate class="needs-validation">
+        <div>
+            <label for="rating ">Rating </label><br>
+        
+         <fieldset class="starability-slot">
+      <legend>Basic star rating:</legend>
+      <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
+
+      <input type="radio" id="rate1" name="review[rating]" value="1" />
+      <label for="rate1">1 star.</label>
+
+      <input type="radio" id="rate2" name="review[rating]" value="2" />
+      <label for="rate2">2 stars.</label>
+
+      <input type="radio" id="rate3" name="review[rating]" value="3" />
+      <label for="rate3">3 stars.</label>
+
+      <input type="radio" id="rate4" name="review[rating]" value="4" />
+      <label for="rate4">4 stars.</label>
+
+      <input type="radio" id="rate5" name="review[rating]" value="5" />
+      <label for="rate5">5 stars.</label>
+
+      <span class="starability-focus-ring"></span>
+    </fieldset>
+    </div><br>
+        <div id="review">
+            <label for="comment">Comments
+            </label><br>
+            <textarea name="review[comment]" id="comment" cols="10" rows="5" novalidate required class="form-control"></textarea>
+        </div>
+        <div class="invalid-feedback">
+                    Please enter the feedback
+                </div>
+
+        <button>submit</button>
+        <hr/>
+    </form>
+    <%}%>
+    <h4>All reviews</h4><br>
+        <ul>
+        <%for (review of listing.reviews){%>
+            <div class="card col-3 ms-3 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%=review.author.username%>
+                    </h5>
+                    <p class="card-text"><%=review.comment%></p>
+                    <p class="card-text">rating:</p>
+                    <p class="starability-result" data-rating="<%= review.rating%>"></p>
+                </div>
+                <form action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=delete" method="post" class="mb-3">
+                    <button class="btn btn-sm btn-dark" style="width:20%;">delete</button>
+                </form>
+            </div>
+       <% }%>
+        </ul>
+</div>
+
+
+</body>

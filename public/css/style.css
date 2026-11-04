@@ -1,0 +1,383 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f8fa;
+    color: #222;
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    height: 50px;
+    background: #ffffff !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    padding: 0.75rem 1.5rem;
+}
+
+.navbar-brand {
+    color: #fe424d !important;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-right: 2rem;
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222 !important;
+    font-weight: 500;
+    font-family: cursive;
+    margin-right: 2rem;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #fe424d!important;
+}
+
+.navbar-toggler {
+    border: 1px solid #ddd;
+}
+
+/* General links */
+a {
+    color: #222;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+a:hover {
+    color: #fe424d;
+}
+
+/* Main headings */
+#main-hdg,
+h1,
+h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 200;
+    font-family: cursive;
+}
+
+#main-hdg {
+    font-size: 2.2rem;
+}
+
+/* Main button */
+#main-btn,
+button {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 0.75rem 1.4rem;
+    background:white;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+#main-btn {
+    min-width: 10px;
+}
+
+#main-btn:hover,
+button:hover {
+    background: #fe424d;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(254, 66, 77, 0.22);
+}
+
+/* Listing index */
+ul {
+    padding-left: 0;
+}
+
+.lstng {
+    list-style: none;
+    background: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin: 0.8rem 0;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+    transition: 0.2s ease;
+}
+
+.lstng:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.lstng a {
+    font-size: 1.rem;
+    font-weight: 500;
+}
+
+/* Forms */
+form {
+    margin-top: 1rem;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    max-width: 650px;
+    border: 1px solid #d8dce1;
+    border-radius: 10px;
+    background: white;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #fe424d;
+    box-shadow: 0 0 0 3px rgba(254, 66, 77, 0.1);
+}
+
+/* New listing page */
+body > h1 {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body > form {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+body > form button {
+    margin-top: 0.5rem;
+}
+
+/* Edit page */
+#edmn {
+    padding: 2rem 0 4rem;
+}
+
+#ed-hd {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#eddsgn {
+    width: min(700px, 100%);
+    margin: 0 auto;
+    padding: 2rem;
+    background: #ffffff;
+    color: #222;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+}
+
+#edfr {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 0;
+}
+
+#edfr input,
+#edfr textarea {
+    max-width: none;
+}
+
+#edfr textarea {
+    min-height: 150px;
+}
+
+#edbt {
+    width: fit-content;
+    min-width: 120px;
+    align-self: flex-start;
+}
+
+/* Listing details */
+body > h3 {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body > ul {
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+body > ul li {
+    list-style: none;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1.05rem;
+}
+
+body > ul li:last-child {
+    border-bottom: none;
+}
+
+body > a {
+    display: inline-block;
+    margin-left: max(0px, calc((100% - 900px) / 2));
+    color: #fe424d;
+    font-weight: 600;
+}
+
+body > form[action*="/delete"] {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+}
+
+/* Footer */
+footer {
+   margin-bottom: 0px;
+   position:sticky;
+   bottom: 0%;
+   width:100%;
+   height:50px;
+}
+
+.f-info {
+    min-height: 50px;
+    width: 100%;
+    background: #222;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.f-info-socials {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+}
+
+#wlpltd {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+
+.f-info-links {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-links a,
+.icons {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.f-info-links a:hover,
+.icons:hover {
+    color: #fe424d;
+}
+
+.icons {
+    margin: 0 0.45rem;
+    font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.7rem 1rem;
+    }
+
+    .navbar-brand {
+        margin-right: 0;
+    }
+
+    #main-hdg {
+        font-size: 1.8rem;
+    }
+
+    #eddsgn {
+        padding: 1.25rem;
+    }
+
+    body > ul {
+        padding: 1rem 1.25rem;
+    }
+
+    body > a {
+        margin-left: 0;
+    }
+}
+.lstng{
+    height:200px;
+    width:200px;
+
+}
+.lstng-img{
+    height:120px;
+    width:150px;
+    border-radius:20px ;
+    margin:5px;
+}
+.allstng{
+    display:flex;
+    flex-direction:row;
+    padding:20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+   
+}
+.sl{
+    height:30px;
+    width:50px;
+    border:1px solid black;
+    align-content: center;
+}
+.sl:hover{
+    height:6px;
+    width:7px;
+    border:2px solid red;
+}
+.sll{
+    align-self: center;
+}
+.edt-img{
+    height:10%;
+    width:10%;
+
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}

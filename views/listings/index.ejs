@@ -1,0 +1,20 @@
+<%layout("/layouts/boilerplate.ejs")%>
+<body>
+    <% if(success){%>
+        <%=success%>
+   <% }%>
+    
+    <p id="main-hdg">Explore the Experiences </p>
+    <form action="/listings/new" method="get">
+        <button id="main-btn">new listing</button>
+    </form>
+    <div class="allstng">
+        <%for(let listings of allListing){%>
+            <div class="lstng">
+                <img src="<%=listings.image.url%>" alt="listing_image" class="lstng-img"><br>
+                <a href="/listings/<%=listings._id%>"><%=listings.title%></a>
+            </div>
+        <%}%>
+    </div>
+</body>
+

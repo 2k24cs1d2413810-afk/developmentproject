@@ -1,0 +1,110 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <div id="edmn">
+        <h1 id="ed-hd">edit your listing</h1>
+        <div id="eddsgn">
+            <form
+                action="/listings/<%=listing._id%>?_method=put"
+                method="post"
+                id="edfr"
+                class="needs-validation"
+                novalidate
+                enctype="multipart/form-data">
+
+                <input
+                    type="text"
+                    name="listing[title]"
+                    value="<%=listing.title%>"
+                    id="eddt"
+                    class="form-control"
+                    required>
+
+                <div class="invalid-feedback">
+                    Please enter the title.
+                </div>
+
+                <br>
+
+
+                <textarea
+                    name="listing[description]"
+                    value="<%=listing.description%>"
+                    class="form-control"
+                    required><%=listing.description%></textarea>
+
+                <div class="invalid-feedback">
+                    Please enter the description.
+                </div>
+
+                <br>
+                <div class=" edt-img">
+                    <img src="<%=listing.image.url%>" height="100px;">
+                </div>
+                <input
+                    type="file"
+                    name="listing[image]"
+                    value="<%=listing.image%>"
+                    placeholder="image"
+                    class="form-control">
+
+                <div class="invalid-feedback">
+                    Please enter the image URL.
+                </div>
+
+                <br>
+
+
+                <input
+                    type="number"
+                    name="listing[price]"
+                    value="<%=listing.price%>"
+                    class="form-control"
+                    required>
+
+                <div class="invalid-feedback">
+                    Please enter the price.
+                </div>
+
+                <br>
+
+
+                <input
+                    type="text"
+                    name="listing[location]"
+                    value="<%=listing.location%>"
+                    placeholder="location"
+                    class="form-control"
+                    required>
+
+                <div class="invalid-feedback">
+                    Please enter the location.
+                </div>
+
+                <br>
+
+
+                <input
+                    type="text"
+                    name="listing[country]"
+                    value="<%=listing.country%>"
+                    placeholder="location"
+                    class="form-control"
+                    required>
+
+                <div class="invalid-feedback">
+                    Please enter the country.
+                </div>
+
+                <br>
+
+                <button id="edbt" type="submit">
+                    submit
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
